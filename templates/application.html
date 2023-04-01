@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{% endblock %}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {{ application.as_p }}
+    <input type="submit" value="Submit" class="btn btn-success">
+    <a href="{% url 'home:home' %}" class="btn btn-primary">Back</a>
+</form>
+{% endblock %}

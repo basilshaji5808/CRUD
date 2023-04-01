@@ -1,0 +1,11 @@
+<ul>
+    <li><a class="active" href="{% url 'home:home' %}">Home</a></li>
+    {% if user.is_authenticated %}
+    <li><a href="{% url 'crud:create' %}">Profile</a></li>
+    <li><a href="{% url 'crud:show' %}">Applications</a> </li>
+    <li style="float:right"><a href="{% url 'home:logout' %}">Logout</a></li>
+    {% else %}
+    <li style="float:right"><a href="{% url 'home:register' %}">Register</a></li>
+    <li style="float:right"><a href="{% url 'home:login' %}">Login</a></li>
+    {% endif %}
+</ul>

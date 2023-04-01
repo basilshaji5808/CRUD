@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{% endblock %}
+{% block content %}
+<br>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit" class="btn btn-success">
+    <a href="{% url 'crud:show' %}" class="btn btn-primary">Back</a>
+</form>
+{% endblock %}

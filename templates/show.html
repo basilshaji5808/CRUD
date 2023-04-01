@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{% endblock %}
+{% block content %}
+<br>
+<div class="row">
+    <p class="text-center h1 fw-bold">Applications</p>
+    <div class="col-md-12">
+        {% for i in applications %}
+        <div class="card" style="margin-bottom: 10px;">
+            <div class="card-body">
+                <h5 class="card-title">{{ i.name }}</h5>
+                <p class="card-text">{{ i.address }}</p>
+                <p class="card-text">{{ i.phone_number }}</p>
+                <p class="card-text">{{ i.email_id }}</p>
+                <p class="card-text">{{ i.nationality }}</p>
+                <a href="{% url 'crud:update' i.id %}" class="btn btn-primary">Update</a>
+                <form action="{% url 'crud:delete' i.id %}" method="post" class="d-inline-block">
+                    {% csrf_token %}
+                    <input type="submit" class="btn btn-danger" value="Delete">
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
